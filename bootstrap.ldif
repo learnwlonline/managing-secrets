@@ -9,6 +9,7 @@
 
 # This file created for use with Managing Secrets using Hashicorp Vault course
 # Copyright 2017 Christopher Parent chris@learnweblogiconline.com
+# this is a test
 
 version: 1
 
