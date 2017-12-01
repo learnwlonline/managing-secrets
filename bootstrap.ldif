@@ -78,7 +78,7 @@ objectclass: top
 sn: Lynch
 uid: jlynch
 uidnumber: 1001
-userpassword: {MD5}X03MO1qnZdYdgyfeuILPmQ==
+userpassword: password
 
 # Entry 8: cn=Joe User,ou=Users,dc=example,dc=org
 dn: cn=Joe User,ou=Users,dc=example,dc=org
