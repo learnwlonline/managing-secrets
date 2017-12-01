@@ -9,25 +9,34 @@
 
 # This file created for use with Managing Secrets using Hashicorp Vault course
 # Copyright 2017 Christopher Parent chris@learnweblogiconline.com
-# this is a test
 
 version: 1
 
+################
+# Uncomment this entry if you need to create the top level object and are using the LDAP implementation
+# from the lab guide
+################
+
 # Entry 1: dc=example,dc=org
-# dn: dc=example,dc=org
-# dc: example
-# o: Example Inc.
-# objectclass: top
-# objectclass: dcObject
-# objectclass: organization
+#dn: dc=example,dc=org
+#dc: example
+#o: Example Inc.
+#objectclass: top
+#objectclass: dcObject
+#objectclass: organization
+
+################
+# This entry creates an administrative user.
+# Uncomment this entry if you are using a different LDPA implementation form the lab guide.
+################
 
 # Entry 2: cn=admin,dc=example,dc=org
-# dn: cn=admin,dc=example,dc=org
-# cn: admin
-# description: LDAP administrator
-# objectclass: simpleSecurityObject
-# objectclass: organizationalRole
-# userpassword: {SSHA}ukBXzn57US767luXMiEFynAa5S/KE/vL
+#dn: cn=admin,dc=example,dc=org
+#cn: admin
+#description: LDAP administrator
+#objectclass: simpleSecurityObject
+#objectclass: organizationalRole
+#userpassword: {SSHA}ukBXzn57US767luXMiEFynAa5S/KE/vL
 
 # Entry 3: ou=Groups,dc=example,dc=org
 dn: ou=Groups,dc=example,dc=org
@@ -35,7 +44,15 @@ objectclass: organizationalUnit
 objectclass: top
 ou: Groups
 
-# Entry 4: cn=dev,ou=Groups,dc=example,dc=org
+# Entry 4: cn=admins,ou=Groups,dc=example,dc=org
+dn: cn=admins,ou=Groups,dc=example,dc=org
+cn: admins
+gidnumber: 501
+memberuid: jlynch
+objectclass: posixGroup
+objectclass: top
+
+# Entry 5: cn=dev,ou=Groups,dc=example,dc=org
 dn: cn=dev,ou=Groups,dc=example,dc=org
 cn: dev
 gidnumber: 500
@@ -43,13 +60,27 @@ memberuid: juser
 objectclass: posixGroup
 objectclass: top
 
-# Entry 5: ou=Users,dc=example,dc=org
+# Entry 6: ou=Users,dc=example,dc=org
 dn: ou=Users,dc=example,dc=org
 objectclass: organizationalUnit
 objectclass: top
 ou: Users
 
-# Entry 6: cn=Joe User,ou=Users,dc=example,dc=org
+# Entry 7: cn=Jane Lynch,ou=Users,dc=example,dc=org
+dn: cn=Jane Lynch,ou=Users,dc=example,dc=org
+cn: Jane Lynch
+gidnumber: 501
+givenname: Jane
+homedirectory: /home/users/jlynch
+objectclass: inetOrgPerson
+objectclass: posixAccount
+objectclass: top
+sn: Lynch
+uid: jlynch
+uidnumber: 1001
+userpassword: {MD5}X03MO1qnZdYdgyfeuILPmQ==
+
+# Entry 8: cn=Joe User,ou=Users,dc=example,dc=org
 dn: cn=Joe User,ou=Users,dc=example,dc=org
 cn: Joe User
 gidnumber: 500
