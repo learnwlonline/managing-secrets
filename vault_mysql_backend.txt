@@ -1,1 +1,3 @@
 vault write database/config/mysql plugin_name=mysql-database-plugin connection_url="root:welcome1@tcp(veyron.dtm:4306)/" allowed_roles="readonly"
+
+vault write database/roles/readonly db_name=mysql creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';" default_ttl="1h" max_ttl="24h"

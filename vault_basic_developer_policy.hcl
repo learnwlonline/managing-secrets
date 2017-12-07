@@ -1,4 +1,4 @@
-path "secret/dev" {
+path "secret/dev/*" {
   capabilities = ["create","read","delete"]
 }
 
