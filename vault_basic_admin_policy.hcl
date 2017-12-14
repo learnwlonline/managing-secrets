@@ -3,5 +3,5 @@ path "secret/dev/*" {
 }
 
 path "secret/admin/*" {
-  capabilities = ["create","read","delete"]
+  capabilities = ["create","read","delete","update","list"]
 }
